@@ -43,3 +43,31 @@ function printAnything(arr) {
         console.log(arr[i]);
     }
 }
+printAnything(['a', 'b', 'c']);
+// printAnything<string[]>(array);
+var Car = /** @class */ (function () {
+    function Car() {
+    }
+    Car.prototype.print = function () {
+        console.log("I am a Car");
+    };
+    return Car;
+}());
+var House = /** @class */ (function () {
+    function House() {
+    }
+    House.prototype.print = function () {
+        console.log("I am a House");
+    };
+    return House;
+}());
+function printHousesOrCars(arr) {
+    for (var i = 0; i < arr.length; i++) {
+        arr[i].print();
+    }
+}
+var carRed = new Car();
+var carBlau = new Car();
+var myHouse = new House();
+printHousesOrCars([carRed, carBlau, myHouse]);
+printHousesOrCars([carRed, carBlau, myHouse]);

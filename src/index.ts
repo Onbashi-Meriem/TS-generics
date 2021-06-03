@@ -40,3 +40,33 @@ function printAnything<T>(arr: T[]): void {
         console.log(arr[i]);
     }
 }
+
+printAnything(['a', 'b', 'c']);
+// printAnything<string[]>(array);
+
+class Car {
+    print() {
+        console.log("I am a Car");
+    }
+}
+
+class House {
+    print() {
+        console.log("I am a House");
+    }
+}
+interface Printable {
+    print(): void;
+}
+
+function printHousesOrCars<T extends Printable>(arr: T[]): void {
+    for (let i = 0; i < arr.length; i++) {
+        arr[i].print();
+    }
+}
+const carRed = new Car();
+const carBlau = new Car();
+const myHouse = new House();
+
+printHousesOrCars([carRed, carBlau, myHouse])
+printHousesOrCars<House>([carRed, carBlau, myHouse]);
